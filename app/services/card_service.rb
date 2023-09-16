@@ -4,7 +4,7 @@ class CardService
 
   # The following method is used to establish a connection to the API, setting the base url and making a new Faraday connection.
   def conn
-    Faraday.new(url: 'https://api.magicthegathering.io/v1')
+    Faraday.new(url: 'https://api.magicthegathering.io')
   end
 
   # The following method is used to make a basic GET request to the API. It uses the conn method to make the request, 
@@ -16,7 +16,7 @@ class CardService
 
   # The following method is used to make a specific GET request to the API for a specific card. It uses the get_url 
   # method to make the request, passing in the query parameter of 'id'.
-  def get_exact_card(id)
-    get_url("cards?", {multiverseid: id})
+  def get_exact_card(multiverse_id)
+    get_url("/v1/cards?", {id: multiverse_id})
   end
 end
