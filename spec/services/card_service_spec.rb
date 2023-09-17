@@ -7,7 +7,8 @@ describe CardService do
     it "can get a specific card with the proper id" do
       # Creates a new instance of the CardService class
       json_body = CardService.new.get_exact_card("2818f287-8403-5217-9a59-c11af2ab77e1")
-
+      
+      # Tests to make sure the response is a hash and has the proper keys and values
       expect(json_body).to be_a(Hash)
       expect(json_body).to have_key(:cards)
       expect(json_body[:cards]).to be_an(Array)
