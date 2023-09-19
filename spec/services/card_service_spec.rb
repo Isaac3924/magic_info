@@ -22,5 +22,22 @@ describe CardService do
       expect(json_body[:cards][0][:rulings]).to be_an(Array)
       expect(json_body[:cards][0][:rulings].size).to eq(2)
     end
+
+    it "can get a specific card with the proper name" do
+      json_body = CardService.new.get_cards_by_name("Avacyn, Angel of Hope")
+
+      expect(json_body).to be_a(Hash)
+      expect(json_body).to have_key(:cards)
+      expect(json_body[:cards]).to be_an(Array)
+      expect(json_body[:cards].size).to eq(11)
+      expect(json_body[:cards][0]).to have_key(:name)
+      expect(json_body[:cards][1]).to have_key(:manaCost)
+      expect(json_body[:cards][2][:name]).to eq("Avacyn, Angel of Hope")
+      expect(json_body[:cards][3][:manaCost]).to eq("{5}{W}{W}{W}")
+      expect(json_body[:cards][4][:cmc]).to eq(8.0)
+      expect(json_body[:cards][5]).to have_key(:rulings)
+      expect(json_body[:cards][6][:rulings]).to be_an(Array)
+      expect(json_body[:cards][7][:rulings].size).to eq(2)
+    end
   end
 end

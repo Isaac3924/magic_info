@@ -19,4 +19,8 @@ class CardService
   def get_exact_card(multiverse_id)
     get_url("/v1/cards?", {id: multiverse_id})
   end
+
+  def get_cards_by_name(name)
+    get_url("/v1/cards?", {name: name})
+  end
 end
