@@ -16,8 +16,8 @@ class CardService
 
   # The following method is used to make a specific GET request to the API for a specific card. It uses the get_url 
   # method to make the request, passing in the query parameter of 'id'.
-  def get_exact_card(multiverse_id)
-    get_url("/v1/cards?", {id: multiverse_id})
+  def get_exact_card(id)
+    get_url("/v1/cards?", {id: id})
   end
 
   def get_cards_by_name(name)
